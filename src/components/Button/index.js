@@ -1,6 +1,6 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, ActivityIndicator, Text } from 'react-native';
-import { themes } from "../../global/themes";
+import {ActivityIndicator, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {themes} from "../../global/themes";
 
 export function Button({ ...rest }) {
     return (
@@ -8,12 +8,16 @@ export function Button({ ...rest }) {
             style={styles.button}
             activeOpacity={0.6}
         >
-            {rest.loading ? <ActivityIndicator color={'#FFF'} /> : <Text style={[styles.textButton]}>{rest.text}</Text>}
+            {
+                rest.loading
+                    ? <ActivityIndicator color={'#FFF'} />
+                    : <Text style={[styles.textButton]}>{rest.text}</Text>
+            }
         </TouchableOpacity>
     );
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     button: {
         width: 200,
         height: 50,

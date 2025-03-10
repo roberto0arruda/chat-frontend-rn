@@ -15,19 +15,19 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
 
     async function getLogin() {
-        setLoading(true)
+        setLoading(true);
 
         try {
             if (!email || !password) {
-                return Alert.alert('Anteção', 'Informe os campos obrigatórios!')
+                return Alert.alert('Atenção', 'Informe os campos obrigatórios!');
             }
 
 
-            Alert.alert('Atenção', 'E-mail ou senha invalida!')
+            Alert.alert('Atenção', 'E-mail ou senha invalida!');
         } catch (error) {
-            console.log(error)
+            console.log(error);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
 
@@ -43,29 +43,31 @@ export default function Login() {
                 </View>
                 <View style={styles.boxMid}>
                     <Input
-                        title="ENDEREÇO E-MAIL"
+                        title="E-MAIL"
                         value={email}
                         onChangeText={setEmail}
-                        IconRigth={MaterialIcons}
+                        IconRight={MaterialIcons}
                         iconRightName="email"
-                        onIconRigthPress={() => console.log('OLA')}
+                        onIconRightPress={() => console.log('OLA')}
                     />
                     <Input
                         title="SENHA"
                         value={password}
                         onChangeText={setPassword}
-                        IconRigth={Octicons}
+                        IconRight={Octicons}
                         iconRightName={showPassword ? "eye-closed" : "eye"}
-                        onIconRigthPress={() => setShowPassword(!showPassword)}
-                        secureTextEntry={true}
+                        onIconRightPress={() => setShowPassword(!showPassword)}
+                        secureTextEntry={showPassword}
                         multiline={false}
                     />
                 </View>
                 <View style={styles.boxBottom}>
                     <Button text="ENTRAR" loading={loading} onPress={() => getLogin()} />
                 </View>
-                <Text style={styles.textBottom}>Não tem conta? <Text style={styles.textBottomCreate}>Crie agora</Text></Text>
-            </View >
+                <Text style={styles.textBottom}>
+                    Não tem conta? <Text style={styles.textBottomCreate}>Crie agora</Text>
+                </Text>
+            </View>
         </KeyboardAvoidingView>
 
     );
@@ -89,30 +91,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    boxMid: {
-        height: Dimensions.get('window').height / 4,
-        width: '100%',
-        paddingHorizontal: 37,
-    },
-    boxBottom: {
-        height: Dimensions.get('window').height / 3,
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'flex-start'
-
-    },
-    boxInput: {
-        width: '100%',
-        height: 40,
-        borderWidth: 1,
-        borderRadius: 40,
-        borderColor: themes.Colors.lightGray,
-        backgroundColor: themes.Colors.bgScreen,
-        marginTop: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 30
-    },
     logo: {
         width: 80,
         height: 80,
@@ -123,20 +101,16 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     },
-    input: {
-        height: '100%',
+    boxMid: {
+        height: Dimensions.get('window').height / 4,
         width: '100%',
-        borderRadius: 40,
+        paddingHorizontal: 37,
     },
-    boxIcon: {
-        width: 50,
-        height: 50,
-        backgroundColor: 'red'
-    },
-    titleInput: {
-        marginLeft: 5,
-        color: themes.Colors.gray,
-        marginTop: 20
+    boxBottom: {
+        height: Dimensions.get('window').height / 3,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     },
     textBottom: {
         fontSize: 16,
